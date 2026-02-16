@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/christides11/Tween-Sequencer/compare/v1.0.1...v1.0.2) (2026-02-16)
+
+
+### Bug Fixes
+
+* Changed asm references from guid to name ([5c27acf](https://github.com/christides11/Tween-Sequencer/commit/5c27acf420a2973c0b63ad946c3649a18536d81a))
+
 ## [1.0.1](https://github.com/christides11/Tween-Sequencer/compare/v1.0.0...v1.0.1) (2026-02-16)
 
 
