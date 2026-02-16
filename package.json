@@ -1,0 +1,10 @@
+{
+    "name": "com.christides.tweensequencer",
+    "displayName": "Tween Sequencer",
+    "author": { "name": "ChrisTides", "url": "" },
+    "version": "1.0.0",
+    "unity": "6000.2",
+    "description": "",
+    "license": "MIT",
+    "dependencies": {}
+}
