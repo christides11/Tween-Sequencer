@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/christides11/Tween-Sequencer/compare/v1.0.2...v2.0.0) (2026-03-18)
+
+
+### Features
+
+* Multiple queue players per queuer ([b24512e](https://github.com/christides11/Tween-Sequencer/commit/b24512e806e11cd62abced2a6027a8dd6a79d356))
+
+
+### BREAKING CHANGES
+
+* Changed TweenSequencerQueuer to have a list of queue players, instead of only supporting one.
+
 ## [1.0.2](https://github.com/christides11/Tween-Sequencer/compare/v1.0.1...v1.0.2) (2026-02-16)
 
 
