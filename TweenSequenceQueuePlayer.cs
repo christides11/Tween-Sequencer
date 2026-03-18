@@ -78,6 +78,16 @@ namespace ct.tweensequence
             if (currentQueue.Count > 0) BuildSequence();
         }
 
+        public virtual void PopAll()
+        {
+            while (currentQueue.Count > 0 && currentSequence.isAlive)
+            {
+                if (!currentSequence.isAlive) BuildSequence();
+                CompleteCurrentSequence();
+                Pop();
+            }
+        }
+
         private void BuildSequence()
         {
             currentSequence = currentQueue[0].tweenSequence

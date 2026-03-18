@@ -7,10 +7,17 @@ namespace ct.tweensequence
 {
     public class TweenSequenceQueuer : MonoBehaviour
     {
+        [Serializable]
+        public class QueuePlayerGroup
+        {
+            public TweenSequenceQueuePlayer player;
+            public bool invokeOnCompletedEvent;
+            public bool immediatelyEndIfBlockingQueue = true;
+        }
+        
         public TweenSequenceContainer sequenceContainer = new TweenSequenceContainer();
-        public TweenSequenceQueuePlayer queuePlayer;
-        public bool immediatelyEndIfBlockingQueue = true;
-        public bool invokeOnCompletedEvent;
+        public QueuePlayerGroup[] queuePlayers = new QueuePlayerGroup[1];
+        public float playerOffsetTime;
         
         public UnityEvent onCompleted = new UnityEvent();
 
@@ -23,10 +30,14 @@ namespace ct.tweensequence
             _completeAction = WhenSequenceCompleted;
         }
 
-        public void Enqueue()
+        public async void Enqueue()
         {
-            queuePlayer.Enqueue(sequenceContainer, DirectorWrapMode.None, immediatelyEndIfBlockingQueue,
-                onCompleteAction: invokeOnCompletedEvent ? _completeAction : null);
+            for (int i = 0; i < queuePlayers.Length; i++)
+            {
+                queuePlayers[i].player.Enqueue(sequenceContainer, DirectorWrapMode.None, queuePlayers[i].immediatelyEndIfBlockingQueue,
+                    onCompleteAction: queuePlayers[i].invokeOnCompletedEvent ? _completeAction : null);
+                if (playerOffsetTime > 0) await Awaitable.WaitForSecondsAsync(playerOffsetTime);
+            }
         }
 
         public void WhenSequenceCompleted()
