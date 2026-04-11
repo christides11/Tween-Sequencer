@@ -32,6 +32,12 @@ namespace ct.tweensequence
 
         public async void Enqueue()
         {
+            if (sequenceContainer.parts == null || sequenceContainer.parts.Count == 0)
+            {
+                WhenSequenceCompleted();
+                return;
+            }
+            
             for (int i = 0; i < queuePlayers.Length; i++)
             {
                 queuePlayers[i].player.Enqueue(sequenceContainer, DirectorWrapMode.None, queuePlayers[i].immediatelyEndIfBlockingQueue,
@@ -43,7 +49,7 @@ namespace ct.tweensequence
         public void WhenSequenceCompleted()
         {
             if(debug) Debug.Log("Sequence Completed.", gameObject);
-            onCompleted.Invoke();
+            onCompleted?.Invoke();
         }
     }
 }
