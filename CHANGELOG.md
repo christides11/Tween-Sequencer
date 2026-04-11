@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/christides11/Tween-Sequencer/compare/v2.0.0...v2.0.1) (2026-04-11)
+
+
+### Bug Fixes
+
+* Call complete event with no sequences ([ee3a681](https://github.com/christides11/Tween-Sequencer/commit/ee3a6815cd3a0544e18d6d980b63b148964a74cd))
+
 # [2.0.0](https://github.com/christides11/Tween-Sequencer/compare/v1.0.2...v2.0.0) (2026-03-18)
 
 
